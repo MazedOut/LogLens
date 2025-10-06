@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LogLens Pro - Analysis Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h2 { margin-top: 30px; }
+        .high { color: #ff0000; }       /* Red */
+        .medium { color: #ff9900; }     /* Orange */
+        .low { color: #339966; }        /* Green */
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-bottom: 5px; }
+        .summary { background-color: #f0f0f0; padding: 10px; margin-bottom: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>LogLens Pro - Analysis Results</h1>
+
+    <!-- Summary Section -->
+    <div class="summary">
+        <h2>Summary</h2>
+        <p>Total log lines: {{ result.summary.total_logs }}</p>
+        <p>Total anomalies: {{ result.summary.total_anomalies }}</p>
+        <p>High severity: {{ result.summary.high }}</p>
+        <p>Medium severity: {{ result.summary.medium }}</p>
+        <p>Low severity: {{ result.summary.low }}</p>
+    </div>
+
+    <!-- High Severity -->
+    <h2 class="high">High Severity Anomalies</h2>
+    {% if result.severity_report.High %}
+        <ul>
+        {% for item in result.severity_report.High %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No high severity anomalies detected.</p>
+    {% endif %}
+
+    <!-- Medium Severity -->
+    <h2 class="medium">Medium Severity Anomalies</h2>
+    {% if result.severity_report.Medium %}
+        <ul>
+        {% for item in result.severity_report.Medium %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No medium severity anomalies detected.</p>
+    {% endif %}
+
+    <!-- Low Severity -->
+    <h2 class="low">Low Severity Anomalies</h2>
+    {% if result.severity_report.Low %}
+        <ul>
+        {% for item in result.severity_report.Low %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No low severity anomalies detected.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Upload another log</a>
+</body>
+</html>

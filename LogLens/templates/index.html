@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LogLens Pro | Log Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 LogLens Pro</h1>
+    <p>Upload a server or security log file to detect anomalies and generate a severity report.</p>
+    <form action="/" method="post" enctype="multipart/form-data">
+      <input type="file" name="logfile" accept=".log,.txt" required>
+      <button type="submit">Analyze Log</button>
+    </form>
+  </div>
+</body>
+</html>
