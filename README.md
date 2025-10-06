@@ -57,18 +57,6 @@ High / Medium / Low Severity Anomalies: listed in separate color-coded sections
 
 Link to upload another log
 
-Project Structure
-bash
-Copy code
-LogLens/
-│
-├─ app.py                # Flask application
-├─ analyzer.py           # Log analysis logic
-├─ requirements.txt      # Python dependencies
-├─ uploads/              # Folder to store uploaded log files (auto-created)
-└─ templates/
-    ├─ index.html        # Log upload page
-    └─ results.html      # Analyzed results page
 #How It Works:
 User uploads a log file through the web form.
 
